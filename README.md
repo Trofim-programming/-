@@ -19,7 +19,7 @@
 ## Как запустить
 1. Склонируйте репозиторий:
    ```sh
-   git clone https://github.com/Trofim-programming/-.git
+   git clone https://github.com/Trofim-programming/Vizitka.git
    ```
 2. Откройте файл `index.html` в браузере.
 
