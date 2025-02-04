@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инновационная визитка</title>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #0a0a0f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .custom-cursor {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 999;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .hero > div {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .gradient-border {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 90%;
+            text-align: center;
+            border: 1px solid var(--neon-blue);
+            border-radius: 15px;
+        }
+
+        .cyber-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            transition: 0.3s;
+        }
+
+        .cyber-button:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(10, 10, 15, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+            z-index: 1000;
+        }
+
+        .modal button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--neon-blue);
+            border: none;
+            color: var(--dark-bg);
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 1rem;
+            }
+            .gradient-border {
+                padding: 1rem;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div>
+            <h1>ТВОЙ БРЕНД</h1>
+            <p>Инновации будущего уже здесь</p>
+            <button class="cyber-button" onclick="openModal()">НАЧАТЬ ПРОЕКТ</button>
+        </div>
+    </section>
+
+    <div class="gradient-border">
+        <h2>Живилик Трофим Иванович</h2>
+        <p>Разработчик • Инженер • Визионер</p>
+    </div>
+
+    <div class="modal" id="modal">
+        <h2>Добро пожаловать!</h2>
+        <button onclick="window.open('https://github.com/Trofim-programming', '_blank')">📌 GitHub</button>
+        <button onclick="window.open('https://vk.com/alexzivilikmen', '_blank')">📌 VK</button>
+        <button onclick="window.open('https://trofim-programming.github.io/Stark/products.html', '_blank')">📌 Сайт</button>
+        <button onclick="window.open('https://t.me/verstka_site_chat', '_blank')">📌 Группа</button>
+        <button onclick="closeModal()">Закрыть</button>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#00f3ff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            }
+        });
+    </script>
+</body>
+</html>
